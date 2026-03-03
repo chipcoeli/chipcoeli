@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #d4a5a5;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.8;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Simple sine wave background */
+        .wave-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .profile-section {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid #d4a5a5;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #d4a5a5;
+            object-fit: cover;
+            margin-bottom: 20px;
+            background: #1a1a1a;
+        }
+
+        .name {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #e8c4c4;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #9a8a8a;
+            font-style: italic;
+        }
+
+        .section {
+            background: rgba(17, 17, 17, 0.9);
+            border: 1px solid #d4a5a5;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: #e8c4c4;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #d4a5a5;
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            color: #c4b4b4;
+            line-height: 2;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .interest-tag {
+            background: #1a1a1a;
+            border: 1px solid #d4a5a5;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #d4a5a5;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-link {
+            display: block;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid #d4a5a5;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #d4a5a5;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: #d4a5a5;
+            color: #0a0a0a;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #9a8a8a;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #6a5a5a;
+            font-size: 0.8rem;
+        }
+
+        .heart {
+            color: #d4a5a5;
+        }
+
+        .music-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Audio player styling */
+        .audio-player {
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        audio {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .song-info {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #c4b4b4;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="wave-bg" id="waveCanvas"></canvas>
+
+    <div class="container">
+        <div class="profile-section">
+            <img src="chip.png" alt="chip" class="profile-pic" onerror="this.style.display='none'">
+            <h1 class="name">chip</h1>
+            <p class="tagline">scared transfem girl</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">about me</h2>
+            <p class="about-text">
+                hi, i'm chip, i have another account (@aviscoeli) i use when i feel energetic. i'm a lot more scared and anxious here, because i don't hide my emotions as much. i make music, i play minecraft, and i like cats. please be nice when talking to me, i love you all <3
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">what i like</h2>
+            <div class="interests">
+                <span class="interest-tag">music</span>
+                <span class="interest-tag">minecraft</span>
+                <span class="interest-tag">cats</span>
+                <span class="interest-tag">being a girl</span>
+                <span class="interest-tag">uh idk</span>
+                <span class="interest-tag">fate of the stars by tally hall</span>
+                <span class="interest-tag">actually just anything by tally hall</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">listen to peak c:</h2>
+            <div class="music-section">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/23N1UHBXSTew1zz6cRCYvF?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="song-info">fate of the stars - tally hall</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">find me</h2>
+            <div class="contact-links">
+                <a href="https://www.youtube.com/@chipcoeli" target="_blank" class="contact-link">youtube: @chipcoeli</a>
+                <a href="#" class="contact-link">discord: @chipcoeli</a>
+            </div>
+        </div>
+
+        <div class="quote">
+            "this is my quote! my quote :3"
+        </div>
+
+        <div class="footer">
+            made with <span class="heart">care</span> by chip <br>
+            2026
+        </div>
+    </div>
+
+    <script>
+        // Simple sine wave animation
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let time = 0;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        function draw() {
+            ctx.fillStyle = '#0a0a0a';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.strokeStyle = 'rgba(212, 165, 165, 0.3)';
+            ctx.lineWidth = 2;
+
+            // Draw multiple sine waves
+            for (let i = 0; i < 3; i++) {
+                ctx.beginPath();
+                const yOffset = height / 2 + (i - 1) * 100;
+                const amplitude = 50 + i * 20;
+                const frequency = 0.002 + i * 0.001;
+                const speed = 0.02 + i * 0.01;
+
+                for (let x = 0; x < width; x++) {
+                    const y = yOffset + Math.sin(x * frequency + time * speed + i) * amplitude;
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            }
+
+            time++;
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>
